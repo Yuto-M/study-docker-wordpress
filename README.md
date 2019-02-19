@@ -3,6 +3,11 @@
 # 概要
 dockerでwordpress環境構築（勉強用）
 
+## Goal
+- `docker-compose up -d`でwordpressの環境が作成できるようにする。
+- コンテナを削除してもデータが消えないように永続化する。
+- 永続化したデータのbackup・restoreができるようにする。
+
 ## 参考にしたサイト
 https://keruuweb.com/docker%E3%81%A7wordpress%E3%82%92%E7%B0%A1%E5%8D%98%E3%81%AB%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%82%8B%E6%96%B9%E6%B3%95/
 https://keruuweb.com/docker-wordpress%E3%82%92%E6%B0%B8%E7%B6%9A%E5%8C%96%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/
