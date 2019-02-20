@@ -11,6 +11,7 @@ dockerでwordpress環境構築（勉強用）
 - 永続化したデータのbackup・restoreができるようにする。
     - やり方が不明
     - data volume containerとかいうのを使うっぽいがよくわからない
+
 # dockerコマンド
 ### コンテナ起動・停止・削除
 ```
@@ -40,6 +41,11 @@ http://docs.docker.jp/engine/userguide/dockervolumes.html
 docker create -v /studydockerwordpress_db_data --name dbdata training/postgres /bin/true
 
 docker run --volumes-from dbdata -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
+```
+
+### data volumeを使用してやると分かりづらそうなら、純粋にホストのディレクトリとコンテナのディレクトリを同期させる事もできる
+```
+http://docs.docker.jp/compose/wordpress.html
 ```
 
 ## 参考にしたサイト
