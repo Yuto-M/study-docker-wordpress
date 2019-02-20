@@ -5,8 +5,34 @@ dockerでwordpress環境構築（勉強用）
 
 ## Goal
 - `docker-compose up -d`でwordpressの環境が作成できるようにする。
+    - docker-compose.ymlを書く
 - コンテナを削除してもデータが消えないように永続化する。
+    - data volumeを使用して永続化
 - 永続化したデータのbackup・restoreができるようにする。
+    - やり方が不明
+    - data volume containerとかいうのを使うっぽいがよくわからない
+# dockerコマンド
+### コンテナ起動・停止・削除
+```
+docker-compose up -d
+docker-compose down
+```
+
+### network確認
+```
+docker network ls
+```
+
+### data volume確認・削除
+```
+docker volume ls
+docker volume rm ${data_volume_name}
+```
+
+### data volumeにマウントされていることを確認
+```
+docker inspect ${db_container_name}
+```
 
 ## 参考にしたサイト
 https://keruuweb.com/docker%E3%81%A7wordpress%E3%82%92%E7%B0%A1%E5%8D%98%E3%81%AB%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%82%8B%E6%96%B9%E6%B3%95/
