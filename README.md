@@ -8,9 +8,10 @@ dockerでwordpress環境構築（勉強用）
     - docker-compose.ymlを書く
 - コンテナを削除してもデータが消えないように永続化する。
     - data volumeを使用して永続化
+    - data volume conainerを使用して永続化
 - 永続化したデータのbackup・restoreができるようにする。
-    - やり方が不明
-    - data volume containerとかいうのを使うっぽいがよくわからない
+    - ホストマシンのディレクトリとマウントしている、data volume containerをマウントしたコンテナを立ち上げて、そこでtarでbackupを固めてだす（backupの取得）。
+    - そのあと、そのbackupを使用してdata volume containerを立ち上げてそのcontainerにマウントする。
 
 # dockerコマンド
 ## docker-compose系
@@ -51,7 +52,8 @@ docker create -v /studydockerwordpress_db_data --name dbdata training/postgres /
 docker run --volumes-from dbdata -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
 ```
 
-### data volumeを使用してやると分かりづらそうなら、純粋にホストのディレクトリとコンテナのディレクトリを同期させる事もできる
+### ~~data volumeを使用してやると分かりづらそうなら、純粋にホストのディレクトリとコンテナのディレクトリを同期させる事もできる~~
+### ホストのディレクトリと同期させるのは基本開発に使用するソースコードとかで、動作を確認したいものに使う
 ```
 http://docs.docker.jp/compose/wordpress.html
 ```
